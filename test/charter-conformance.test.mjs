@@ -57,7 +57,7 @@ test('every worksIn names a declared repository, and every repository has an own
   const covered = new Set(c.roles.flatMap((r) => r.worksIn ?? []))
   for (const r of repos) assert.ok(covered.has(r), `no role works in "${r}"`)
   // And the declared repository is the real one this charter lives in.
-  assert.ok(c.repositories.some((r) => r.url === 'github.com/FlashyLabs/wdk-staking-kit'),
+  assert.ok(c.repositories.some((r) => r.url === 'github.com/AgenteLabs/wdk-staking-kit'),
     'the charter does not name the repository it lives in')
 })
 

@@ -11,15 +11,15 @@
 
 A reference staking primitive for wallets built on [Tether's WDK](https://github.com/tetherto/wdk) — or any wallet SDK. Lock a balance into a fixed-term tier at a published rate, without an on-chain contract and without touching a ledger's internals: a lock **earmarks** a balance a provider already credits, and only the yield, paid on close, is a real write.
 
-[![tests](https://github.com/FlashyLabs/wdk-staking-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/FlashyLabs/wdk-staking-kit/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/FlashyLabs/wdk-staking-kit/actions/workflows/codeql.yml/badge.svg)](https://github.com/FlashyLabs/wdk-staking-kit/actions/workflows/codeql.yml)
-[![Scorecard](https://github.com/FlashyLabs/wdk-staking-kit/actions/workflows/scorecard.yml/badge.svg)](https://github.com/FlashyLabs/wdk-staking-kit/security/code-scanning)
+[![tests](https://github.com/AgenteLabs/wdk-staking-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/AgenteLabs/wdk-staking-kit/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/AgenteLabs/wdk-staking-kit/actions/workflows/codeql.yml/badge.svg)](https://github.com/AgenteLabs/wdk-staking-kit/actions/workflows/codeql.yml)
+[![Scorecard](https://github.com/AgenteLabs/wdk-staking-kit/actions/workflows/scorecard.yml/badge.svg)](https://github.com/AgenteLabs/wdk-staking-kit/security/code-scanning)
 [![npm version](https://img.shields.io/npm/v/@flashylabs/wdk-staking-kit.svg)](https://www.npmjs.com/package/@flashylabs/wdk-staking-kit)
 [![npm downloads](https://img.shields.io/npm/dm/@flashylabs/wdk-staking-kit.svg)](https://www.npmjs.com/package/@flashylabs/wdk-staking-kit)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](./LICENSE)
 [![node](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](https://nodejs.org)
 
-Built by [Flashy Labs](https://flashyos.com) — part of the open-source toolkit we ship for teams building on Tether's WDK. Its sibling package is [`@flashylabs/wdk-policy-guard`](https://github.com/FlashyLabs/wdk-policy-guard).
+Built by [Flashy Labs](https://flashyos.com) — part of the open-source toolkit we ship for teams building on Tether's WDK. Its sibling package is [`@flashylabs/wdk-policy-guard`](https://github.com/AgenteLabs/wdk-policy-guard).
 
 ## Why this exists
 
@@ -171,4 +171,4 @@ No prize, no token, no yield. Just the ledger of who looked closely.
 
 ---
 
-Built by [Flashy Labs](https://flashyos.com), the mesh platform for organisations' agents. If something here is broken, unclear, or just interesting, [open an issue](https://github.com/FlashyLabs/wdk-staking-kit/issues) — we read them.
+Built by [Flashy Labs](https://flashyos.com), the mesh platform for organisations' agents. If something here is broken, unclear, or just interesting, [open an issue](https://github.com/AgenteLabs/wdk-staking-kit/issues) — we read them.
