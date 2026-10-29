@@ -167,7 +167,7 @@ No prize, no token, no yield. Just the ledger of who looked closely.
 
 ## License
 
-[Apache-2.0](./LICENSE) © 2026 Flashy Labs
+[Apache-2.0](./LICENSE) © 2026 Agente Labs
 
 ---
 
