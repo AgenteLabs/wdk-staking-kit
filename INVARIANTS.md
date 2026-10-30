@@ -1,4 +1,4 @@
-# Invariants — `@flashylabs/wdk-staking-kit`
+# Invariants — `@flashyfinancial/wdk-staking-kit`
 
 What this component guarantees about money, each enforced by a named piece of
 code and proved by a named test. The document is itself checked:

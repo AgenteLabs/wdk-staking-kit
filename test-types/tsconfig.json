@@ -8,7 +8,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@flashylabs/wdk-staking-kit": ["../dist/index.d.ts"]
+      "@flashyfinancial/wdk-staking-kit": ["../dist/index.d.ts"]
     }
   },
   "include": ["consumer.ts"]

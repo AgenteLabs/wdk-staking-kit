@@ -1,9 +1,9 @@
 {
   "contract": "wdk-staking-kit-manifest/1",
-  "name": "@flashylabs/wdk-staking-kit",
+  "name": "@flashyfinancial/wdk-staking-kit",
   "module": {
-    "package": "@flashylabs/wdk-staking-kit",
-    "version": "0.2.0"
+    "package": "@flashyfinancial/wdk-staking-kit",
+    "version": "0.3.0"
   },
   "posture": {
     "stage": "balance-provider-first",

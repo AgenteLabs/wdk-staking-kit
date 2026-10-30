@@ -1,4 +1,4 @@
-# @flashylabs/wdk-staking-kit
+# @flashyfinancial/wdk-staking-kit
 
 ```
         ██
@@ -14,8 +14,8 @@ A reference staking primitive for wallets built on [Tether's WDK](https://github
 [![tests](https://github.com/FlashyLabs/wdk-staking-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/FlashyLabs/wdk-staking-kit/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/FlashyLabs/wdk-staking-kit/actions/workflows/codeql.yml/badge.svg)](https://github.com/FlashyLabs/wdk-staking-kit/actions/workflows/codeql.yml)
 [![Scorecard](https://github.com/FlashyLabs/wdk-staking-kit/actions/workflows/scorecard.yml/badge.svg)](https://github.com/FlashyLabs/wdk-staking-kit/security/code-scanning)
-[![npm version](https://img.shields.io/npm/v/@flashylabs/wdk-staking-kit.svg)](https://www.npmjs.com/package/@flashylabs/wdk-staking-kit)
-[![npm downloads](https://img.shields.io/npm/dm/@flashylabs/wdk-staking-kit.svg)](https://www.npmjs.com/package/@flashylabs/wdk-staking-kit)
+[![npm version](https://img.shields.io/npm/v/@flashyfinancial/wdk-staking-kit.svg)](https://www.npmjs.com/package/@flashyfinancial/wdk-staking-kit)
+[![npm downloads](https://img.shields.io/npm/dm/@flashyfinancial/wdk-staking-kit.svg)](https://www.npmjs.com/package/@flashyfinancial/wdk-staking-kit)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](./LICENSE)
 [![node](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](https://nodejs.org)
 
@@ -30,13 +30,13 @@ As of this package's first release, no WDK module offers staking — every walle
 ## Install
 
 ```bash
-npm install @flashylabs/wdk-staking-kit
+npm install @flashyfinancial/wdk-staking-kit
 ```
 
 ## Quickstart
 
 ```js
-import { StakingService, InMemoryBalanceProvider, EXAMPLE_TIERS } from '@flashylabs/wdk-staking-kit'
+import { StakingService, InMemoryBalanceProvider, EXAMPLE_TIERS } from '@flashyfinancial/wdk-staking-kit'
 
 const provider = new InMemoryBalanceProvider({ alice: '100' })
 const staking = new StakingService({ provider, tiers: EXAMPLE_TIERS })
@@ -63,7 +63,7 @@ const closed = await staking.close(position.id)
 `EXAMPLE_TIERS` is exactly that — an example. Publish your own:
 
 ```js
-import { publishedTerms, checkTerms } from '@flashylabs/wdk-staking-kit'
+import { publishedTerms, checkTerms } from '@flashyfinancial/wdk-staking-kit'
 
 const MY_TIERS = [
   { id: 'flex-7', termDays: 7, aprBasisPoints: 150, minAmount: '10' },
@@ -131,12 +131,14 @@ const unsubscribe = staking.on('stake.closed', ({ position }) => { /* ... */ })
 
 ## Status
 
-Pre-1.0 (`0.2.0`). The tier and position shapes are not yet frozen. Watch [`CHANGELOG.md`](CHANGELOG.md) across a version bump before pinning a wider range than `^0.2.0`.
+Pre-1.0 (`0.3.0`). The tier and position shapes are not yet frozen. Watch [`CHANGELOG.md`](CHANGELOG.md) across a version bump before pinning a wider range than `^0.3.0`.
+
+**The npm scope changed at `0.3.0`.** This package now publishes as `@flashyfinancial/wdk-staking-kit` — finance packages in this estate moved to the FlashyFinancial scope. `@flashylabs/wdk-staking-kit` will receive no further releases and is deprecated on the registry once a human with publish rights runs `deprecate-old-scope.yml`; update your import and your `package.json` dependency to the new name.
 
 ## Testing
 
 ```bash
-npm test        # 90 tests, node's built-in test runner, no external services
+npm test        # 102 tests, node's built-in test runner, no external services
 npm run check    # confirms the generated manifest is current
 npm run invariants   # INVARIANTS.md holds against the suite (invariants/1)
 ```

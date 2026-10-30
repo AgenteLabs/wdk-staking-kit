@@ -6,7 +6,7 @@
 import {
   StakingService, InMemoryBalanceProvider, EXAMPLE_TIERS, tierById, yieldForAmount, checkTerms,
   type Tier, type BalanceProvider,
-} from '@flashylabs/wdk-staking-kit'
+} from '@flashyfinancial/wdk-staking-kit'
 
 // A plain object satisfying the BalanceProvider interface, not an instance
 // of InMemoryBalanceProvider — this is the exact case the interface exists
