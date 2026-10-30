@@ -7,7 +7,7 @@
 //
 // Deliberately NOT asserted here: `flashyos.roles.json`'s `repositories[].url`
 // and `package.json`'s `repository`/`homepage`/`bugs` fields, which name the
-// GitHub *repository location* (`github.com/FlashyLabs/wdk-staking-kit`) —
+// GitHub *repository location* (`github.com/AgenteLabs/wdk-staking-kit`) —
 // a separate fact from the npm scope, and this is a scope rename, not a repo
 // move. CHANGELOG.md's historical entries also legitimately keep the old
 // scope, since they describe what shipped under it.
@@ -38,12 +38,18 @@ test('package.json declares a public publishConfig', () => {
   assert.equal(pkg.publishConfig?.registry, 'https://registry.npmjs.org/')
 })
 
-test('package.json\'s GitHub-facing fields are untouched by the scope rename', () => {
-  // This is a scope rename, not a repo move — the repository really does
-  // live at github.com/FlashyLabs/wdk-staking-kit.
-  assert.match(pkg.repository.url, /FlashyLabs\/wdk-staking-kit/)
-  assert.match(pkg.homepage, /FlashyLabs\/wdk-staking-kit/)
-  assert.match(pkg.bugs.url, /FlashyLabs\/wdk-staking-kit/)
+test('package.json\'s GitHub-facing fields name the repository\'s real home', () => {
+  // npm publishes with --provenance, and the registry rejects a tarball whose
+  // repository.url disagrees with the attested build source (E422, measured
+  // 2026-10-30 on the first @flashyfinancial publish). GitHub redirects the
+  // pre-rename org name; the provenance check does not. So these fields must
+  // name the org the repository actually lives in — today AgenteLabs — and
+  // move again on the day the repository itself moves, never before.
+  const HOME = /github\.com\/AgenteLabs\/wdk-staking-kit/
+  assert.match(pkg.repository.url, HOME)
+  assert.match(pkg.homepage, HOME)
+  assert.match(pkg.bugs.url, HOME)
+  assert.doesNotMatch(pkg.repository.url, /FlashyLabs/, 'the pre-rename org would fail npm provenance')
 })
 
 test('README install command and import statements use the new scope', () => {

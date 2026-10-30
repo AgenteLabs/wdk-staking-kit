@@ -9,7 +9,7 @@
   "repositories": [
     {
       "name": "wdk-staking-kit",
-      "url": "github.com/FlashyLabs/wdk-staking-kit",
+      "url": "github.com/AgenteLabs/wdk-staking-kit",
       "default": true,
       "holds": [
         "library",
