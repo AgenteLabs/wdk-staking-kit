@@ -1,0 +1,52 @@
+name: Deprecate old npm scope
+
+# One-off, human-triggered. The package moved from @flashylabs/wdk-staking-kit
+# to @flashyfinancial/wdk-staking-kit (finance packages move to the
+# FlashyFinancial scope). This workflow runs `npm deprecate` against every
+# version ever published under the old scope, pointing consumers at the new
+# name — it does not touch the new scope, and it never runs on its own
+# schedule. A human with the npm token triggers it, once, after confirming the
+# new scope is actually live on the registry.
+#
+# Deliberately workflow_dispatch only:
+#   - no `push` trigger — this must never fire as a side effect of a commit
+#   - no `schedule` — deprecating is a one-time announcement, not a recurring job
+#
+# Uses the same NPM_TOKEN secret the publish workflow already uses. This
+# workflow does not create, read, or need any other credential.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deprecate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Verify the npm token can publish before doing anything else
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_FLASHYOS_CI || secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "::error::No npm token found. Add one with publish rights on the old @flashylabs scope as a repo secret named NPM_TOKEN_FLASHYOS_CI or NPM_TOKEN."
+            exit 1
+          fi
+          if ! WHO=$(npm whoami 2>&1); then
+            echo "::error::The npm token is set but not valid for this scope — npm said: ${WHO}. Confirm this token has publish rights on the @flashylabs scope."
+            exit 1
+          fi
+          echo "Authenticated to npm as ${WHO}"
+
+      - name: Deprecate every version of the old scope's package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_FLASHYOS_CI || secrets.NPM_TOKEN }}
+        run: npm deprecate @flashylabs/wdk-staking-kit@* "moved to @flashyfinancial/wdk-staking-kit"

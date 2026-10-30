@@ -1,6 +1,6 @@
 {
-  "name": "@flashylabs/wdk-staking-kit",
-  "version": "0.2.0",
+  "name": "@flashyfinancial/wdk-staking-kit",
+  "version": "0.3.0",
   "description": "A reference staking primitive for wallets built on Tether's WDK (or any wallet SDK): lock a balance for a fixed term at a published rate, without touching an on-chain contract or a ledger's internals \u2014 a lock earmarks a balance a provider already credits, and only yield is a real write, on close. No first-party WDK staking module exists; this is a generalized reference implementation, open for anyone to adopt or adapt.",
   "type": "module",
   "main": "./src/index.js",
@@ -12,7 +12,7 @@
     }
   },
   "scripts": {
-    "test": "node --test test/balance-provider.test.mjs test/charter-conformance.test.mjs test/doc-pins.test.mjs test/invariants.test.mjs test/manifest.test.mjs test/mesh-refs.test.mjs test/staking.test.mjs test/strike.test.mjs test/terms.test.mjs test/test-script.test.mjs test/vendor-invariants.test.mjs test/workflow-pins.test.mjs",
+    "test": "node --test test/balance-provider.test.mjs test/charter-conformance.test.mjs test/doc-pins.test.mjs test/invariants.test.mjs test/manifest.test.mjs test/mesh-refs.test.mjs test/scope.test.mjs test/staking.test.mjs test/strike.test.mjs test/terms.test.mjs test/test-script.test.mjs test/vendor-invariants.test.mjs test/workflow-pins.test.mjs",
     "manifest": "node src/manifest.js --write",
     "check": "node src/manifest.js --check",
     "invariants": "node vendor-invariants.mjs check .",
@@ -33,6 +33,10 @@
   ],
   "author": "Flashy Labs",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FlashyLabs/wdk-staking-kit.git"
