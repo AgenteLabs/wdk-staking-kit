@@ -7,7 +7,7 @@
 //
 // Deliberately NOT asserted here: `flashyos.roles.json`'s `repositories[].url`
 // and `package.json`'s `repository`/`homepage`/`bugs` fields, which name the
-// GitHub *repository location* (`github.com/FlashyLabs/wdk-staking-kit`) —
+// GitHub *repository location* (`github.com/AgenteLabs/wdk-staking-kit`) —
 // a separate fact from the npm scope, and this is a scope rename, not a repo
 // move. CHANGELOG.md's historical entries also legitimately keep the old
 // scope, since they describe what shipped under it.
@@ -40,7 +40,7 @@ test('package.json declares a public publishConfig', () => {
 
 test('package.json\'s GitHub-facing fields are untouched by the scope rename', () => {
   // This is a scope rename, not a repo move — the repository really does
-  // live at github.com/FlashyLabs/wdk-staking-kit.
+  // live at github.com/AgenteLabs/wdk-staking-kit.
   assert.match(pkg.repository.url, /FlashyLabs\/wdk-staking-kit/)
   assert.match(pkg.homepage, /FlashyLabs\/wdk-staking-kit/)
   assert.match(pkg.bugs.url, /FlashyLabs\/wdk-staking-kit/)

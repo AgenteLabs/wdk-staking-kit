@@ -39,11 +39,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FlashyLabs/wdk-staking-kit.git"
+    "url": "git+https://github.com/AgenteLabs/wdk-staking-kit.git"
   },
-  "homepage": "https://github.com/FlashyLabs/wdk-staking-kit#readme",
+  "homepage": "https://github.com/AgenteLabs/wdk-staking-kit#readme",
   "bugs": {
-    "url": "https://github.com/FlashyLabs/wdk-staking-kit/issues"
+    "url": "https://github.com/AgenteLabs/wdk-staking-kit/issues"
   },
   "engines": {
     "node": ">=20"
